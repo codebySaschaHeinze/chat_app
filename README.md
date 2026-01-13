@@ -253,7 +253,7 @@ Ensure it is installed and imported, e.g. in src/main.ts:
 
 ---
 
-API Quick Tests
+### API Quick Tests
 
 Create a message (PowerShell):
 $body = @{ name = "Testuser"; message = "Hello" } | ConvertTo-Json
@@ -267,7 +267,7 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/1/" -Method Delete
 
 ---
 
-Notes
+## Notes
 
 - This is a learning project, intentionally explicit and minimal.
 - No authentication or permissions are implemented.
@@ -276,7 +276,3 @@ Notes
 - Backend and frontend are deliberately kept decoupled.
 
 License: Private learning project
-
-```
-
-```
