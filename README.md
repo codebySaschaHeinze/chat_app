@@ -1,4 +1,4 @@
-## Chat App Project (Django + Angular)
+# Chat App Project (Django + Angular)
 
 A small full-stack learning project consisting of a Django backend and an Angular frontend.
 The project is built to practice a clean separation between backend (API) and frontend (SPA),
@@ -9,11 +9,11 @@ The frontend is a minimal Angular application that consumes this API directly vi
 
 ---
 
-# Goal
+## Goal
 
 Practice full-stack fundamentals in a realistic but controlled setup:
 
-# Backend (Django)
+### Backend (Django)
 
 - Django project and app structure
 - Database models and migrations
@@ -22,7 +22,7 @@ Practice full-stack fundamentals in a realistic but controlled setup:
 - CSRF handling for API requests
 - CORS configuration for cross-origin frontend access
 
-# Frontend (Angular)
+### Frontend (Angular)
 
 - Modern Angular (standalone components)
 - HTTP communication with a backend API
@@ -35,14 +35,14 @@ Practice full-stack fundamentals in a realistic but controlled setup:
 
 ## Tech Stack
 
-# Backend
+### Backend
 
 - Python
 - Django
 - SQLite (default Django database)
 - django-cors-headers
 
-# Frontend
+### Frontend
 
 - Angular (standalone setup)
 - TypeScript
@@ -51,7 +51,7 @@ Practice full-stack fundamentals in a realistic but controlled setup:
 
 ---
 
-## Project Layout
+### Project Layout
 
 ```text
 chat_app/
@@ -82,6 +82,7 @@ chat_app/
 │
 ├─ .gitignore
 └─ README.md
+```
 
 ---
 
@@ -89,13 +90,13 @@ chat_app/
 
 The backend exposes a simple REST-like API for chat messages.
 
-Model: Chat
+### Model: Chat
 
 - name (string)
 - message (text)
 - created_at (timestamp, UTC)
 
-Endpoints
+### Endpoints
 
 - GET /chat/
   Returns all chat messages as JSON.
@@ -130,7 +131,7 @@ Zone.js is enabled to ensure automatic UI updates after HTTP requests.
 
 ## Setup (Local Development)
 
-# Prerequisites
+### Prerequisites
 
 - Git
 - Python 3.x
@@ -145,7 +146,7 @@ cd chat_app
 
 ---
 
-# Backend Setup (Windows)
+### Backend Setup (Windows)
 
 cd chat_app_backend
 
@@ -168,7 +169,7 @@ http://127.0.0.1:8010/chat/
 
 ---
 
-# Backend Setup (macOS / Linux)
+### Backend Setup (macOS / Linux)
 
 cd chat_app_backend
 
@@ -191,7 +192,7 @@ http://127.0.0.1:8010/chat/
 
 ---
 
-# Frontend Setup
+### Frontend Setup
 
 Open a second terminal:
 
@@ -208,7 +209,7 @@ http://localhost:4200
 
 ---
 
-# Configuration Notes
+### Configuration Notes
 
 Ports
 
@@ -230,7 +231,7 @@ Ensure it is installed and imported, e.g. in src/main.ts:
 
 ---
 
-# Common Troubleshooting
+### Common Troubleshooting
 
 1. Connection refused (ERR_CONNECTION_REFUSED)
 
@@ -275,4 +276,7 @@ Notes
 - Backend and frontend are deliberately kept decoupled.
 
 License: Private learning project
+
+```
+
 ```
