@@ -11,7 +11,7 @@ from .models import Chat
 @require_http_methods(["GET", "POST"])
 def chat_view(request):
     if request.method == "GET":
-        chats = Chat.objects.order_by("created_at")
+        chats = Chat.objects.order_by("-created_at")
         data = [
             {
                 "id": chat.id,
@@ -29,11 +29,6 @@ def chat_view(request):
     name = (payload.get("name") or "").strip()
     message = (payload.get("message") or "").strip()
 
-    # if not name:
-    #     return JsonResponse({"error": "name ist required"}, status=400)
-    # if not message:
-    #     return JsonResponse({"error": "message ist required"}, status=400)
-
     chat = Chat.objects.create(
         name=name, 
         message=message,
@@ -46,7 +41,7 @@ def chat_view(request):
             "message": chat.message,
             "created_at": chat.created_at.isoformat(),
         },
-        status=201,
+        
     )
 @csrf_exempt
 @require_http_methods(["DELETE"])

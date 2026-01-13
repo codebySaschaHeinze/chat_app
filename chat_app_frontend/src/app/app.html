@@ -1,31 +1,37 @@
-<h1>Chat</h1>
+<section>
+  <h1>Chat-App</h1>
 
-<div class="inputs_and_btn">
-  <input
-    class="input_name"
-    type="text"
-    placeholder="Name"
-    [value]="name"
-    (input)="onNameChange($any($event.target).value)"
-  />
+  <div class="inputs_and_send_btn">
+    <div class="inputs">
+      <input
+        class="input_name"
+        type="text"
+        placeholder="dein Name"
+        [value]="name"
+        (input)="onNameChange($any($event.target).value)"
+      />
 
-  <input
-    class="input_name"
-    type="text"
-    placeholder="Message"
-    [value]="message"
-    (input)="onMessageChange($any($event.target).value)"
-  />
+      <input
+        class="input_message"
+        type="text"
+        placeholder="deine Nachricht"
+        [value]="message"
+        (input)="onMessageChange($any($event.target).value)"
+      />
+    </div>
 
-  <button class="send_button" (click)="sendMessage()">Send</button>
-</div>
+    <button class="send_btn" (click)="sendMessage()">Abschicken</button>
+  </div>
 
-@for (chat of chats; track chat.id) {
-<div>
-  <p class="chat_name">{{ chat.name }}:</p>
-  <p class="chat_message">{{ chat.message }}</p>
-  <p class="chat_date">{{ chat.created_at | date : 'HH:mm / dd.MM.yy' }}</p>
-  <button (click)="deleteChat(chat.id)">Nachricht löschen</button>
-</div>
+  @for (chat of chats; track chat.id) {
+  <div class="message_box">
+    <p class="chat_name">{{ chat.name }}:</p>
+    <p class="chat_message">{{ chat.message }}</p>
+    <div class="date_and_delete_btn">
+      <p class="chat_date">gesendet: {{ chat.created_at | date : 'HH:mm / dd.MM.yy' }}</p>
+      <button class="delete_btn" (click)="deleteChat(chat.id)">X</button>
+    </div>
+  </div>
 
-}
+  }
+</section>
