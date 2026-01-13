@@ -1,4 +1,4 @@
-Chat App Project (Django + Angular)
+## Chat App Project (Django + Angular)
 
 A small full-stack learning project consisting of a Django backend and an Angular frontend.
 The project is built to practice a clean separation between backend (API) and frontend (SPA),
@@ -9,11 +9,11 @@ The frontend is a minimal Angular application that consumes this API directly vi
 
 ---
 
-Goal
+# Goal
 
 Practice full-stack fundamentals in a realistic but controlled setup:
 
-Backend (Django)
+# Backend (Django)
 
 - Django project and app structure
 - Database models and migrations
@@ -22,7 +22,7 @@ Backend (Django)
 - CSRF handling for API requests
 - CORS configuration for cross-origin frontend access
 
-Frontend (Angular)
+# Frontend (Angular)
 
 - Modern Angular (standalone components)
 - HTTP communication with a backend API
@@ -33,16 +33,16 @@ Frontend (Angular)
 
 ---
 
-Tech Stack
+## Tech Stack
 
-Backend
+# Backend
 
 - Python
 - Django
 - SQLite (default Django database)
 - django-cors-headers
 
-Frontend
+# Frontend
 
 - Angular (standalone setup)
 - TypeScript
@@ -51,40 +51,41 @@ Frontend
 
 ---
 
-Project Layout
+## Project Layout
 
+```text
 chat_app/
-├─ chat_app_backend/ Django backend
-│ ├─ core/ Django project (settings, urls, wsgi)
-│ ├─ chat/ Django app
-│ │ ├─ migrations/
-│ │ ├─ models.py
-│ │ ├─ views.py
-│ │ ├─ urls.py
-│ │ └─ admin.py
-│ ├─ db.sqlite3
-│ ├─ manage.py
-│ ├─ requirements.txt
-│ └─ .venv/ Virtual environment (not committed)
+├─ chat_app_backend/              Django backend
+│  ├─ core/                       Django project (settings, urls, wsgi)
+│  ├─ chat/                       Django app
+│  │  ├─ migrations/
+│  │  ├─ models.py
+│  │  ├─ views.py
+│  │  ├─ urls.py
+│  │  └─ admin.py
+│  ├─ db.sqlite3
+│  ├─ manage.py
+│  ├─ requirements.txt
+│  └─ .venv/                      Virtual environment (not committed)
 │
-├─ chat_app_frontend/ Angular frontend
-│ ├─ src/
-│ │ ├─ app/
-│ │ │ ├─ app.ts Root component (standalone)
-│ │ │ ├─ app.html Template
-│ │ │ └─ app.config.ts Application configuration
-│ │ ├─ main.ts
-│ │ └─ polyfills.ts
-│ ├─ package.json
-│ ├─ package-lock.json
-│ └─ angular.json
+├─ chat_app_frontend/             Angular frontend
+│  ├─ src/
+│  │  ├─ app/
+│  │  │  ├─ app.ts                Root component (standalone)
+│  │  │  ├─ app.html              Template
+│  │  │  └─ app.config.ts         Application configuration
+│  │  ├─ main.ts
+│  │  └─ polyfills.ts
+│  ├─ package.json
+│  ├─ package-lock.json
+│  └─ angular.json
 │
 ├─ .gitignore
 └─ README.md
 
 ---
 
-Backend Overview
+## Backend Overview
 
 The backend exposes a simple REST-like API for chat messages.
 
@@ -109,7 +110,7 @@ CSRF protection is disabled for API endpoints to simplify frontend integration
 
 ---
 
-Frontend Overview
+## Frontend Overview
 
 The frontend is a minimal Angular application that:
 
@@ -127,9 +128,9 @@ Zone.js is enabled to ensure automatic UI updates after HTTP requests.
 
 ---
 
-Setup (Local Development)
+## Setup (Local Development)
 
-Prerequisites
+# Prerequisites
 
 - Git
 - Python 3.x
@@ -144,7 +145,7 @@ cd chat_app
 
 ---
 
-Backend Setup (Windows)
+# Backend Setup (Windows)
 
 cd chat_app_backend
 
@@ -167,7 +168,7 @@ http://127.0.0.1:8010/chat/
 
 ---
 
-Backend Setup (macOS / Linux)
+# Backend Setup (macOS / Linux)
 
 cd chat_app_backend
 
@@ -190,7 +191,7 @@ http://127.0.0.1:8010/chat/
 
 ---
 
-Frontend Setup
+# Frontend Setup
 
 Open a second terminal:
 
@@ -207,7 +208,7 @@ http://localhost:4200
 
 ---
 
-Configuration Notes
+# Configuration Notes
 
 Ports
 
@@ -229,7 +230,7 @@ Ensure it is installed and imported, e.g. in src/main.ts:
 
 ---
 
-Common Troubleshooting
+# Common Troubleshooting
 
 1. Connection refused (ERR_CONNECTION_REFUSED)
 
@@ -274,3 +275,4 @@ Notes
 - Backend and frontend are deliberately kept decoupled.
 
 License: Private learning project
+```
