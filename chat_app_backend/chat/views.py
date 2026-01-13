@@ -1,11 +1,10 @@
-from django.shortcuts import render
-
-# Create your views here.
 
 import json
-from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse
+
 from .models import Chat
 
 @csrf_exempt
@@ -49,3 +48,9 @@ def chat_view(request):
         },
         status=201,
     )
+@csrf_exempt
+@require_http_methods(["DELETE"])
+def delete_chat(request, chat_id):
+    chat = get_object_or_404(Chat, id=chat_id)
+    chat.delete()
+    return JsonResponse({"status": "deleted"})

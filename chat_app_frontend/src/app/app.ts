@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 interface Chat {
   id: number;
@@ -12,6 +13,7 @@ interface Chat {
   standalone: true,
   selector: 'app-root',
   templateUrl: './app.html',
+  imports: [DatePipe],
 })
 export class App implements OnInit {
   chats: Chat[] = [];
@@ -49,6 +51,12 @@ export class App implements OnInit {
       this.chats = [created, ...this.chats];
       this.name = '';
       this.message = '';
+    });
+  }
+
+  deleteChat(id: number): void {
+    this.http.delete(`/api/chat/${id}/`).subscribe(() => {
+      this.chats = this.chats.filter((chat) => chat.id !== id);
     });
   }
 }

@@ -1,7 +1,8 @@
 <h1>Chat</h1>
 
-<div>
+<div class="inputs_and_btn">
   <input
+    class="input_name"
     type="text"
     placeholder="Name"
     [value]="name"
@@ -9,20 +10,22 @@
   />
 
   <input
+    class="input_name"
     type="text"
     placeholder="Message"
     [value]="message"
     (input)="onMessageChange($any($event.target).value)"
   />
 
-  <button (click)="sendMessage()">Send</button>
+  <button class="send_button" (click)="sendMessage()">Send</button>
 </div>
 
-<ul>
-  @for (chat of chats; track chat.id) {
-  <li>
-    <strong>{{ chat.name }}</strong
-    >: {{ chat.message }} {{ chat.created_at }}
-  </li>
-  }
-</ul>
+@for (chat of chats; track chat.id) {
+<div>
+  <p class="chat_name">{{ chat.name }}:</p>
+  <p class="chat_message">{{ chat.message }}</p>
+  <p class="chat_date">{{ chat.created_at | date : 'HH:mm / dd.MM.yy' }}</p>
+  <button (click)="deleteChat(chat.id)">Nachricht löschen</button>
+</div>
+
+}
