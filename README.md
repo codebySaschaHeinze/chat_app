@@ -129,34 +129,139 @@ Zone.js is enabled to ensure automatic UI updates after HTTP requests.
 
 Setup (Local Development)
 
-Backend
+Prerequisites
+
+- Git
+- Python 3.x
+- Node.js (LTS recommended)
+- npm (ships with Node)
+- Optional: VS Code
+
+Clone the repository
+
+git clone <YOUR_REPO_URL>
+cd chat_app
+
+---
+
+Backend Setup (Windows)
 
 cd chat_app_backend
 
+Create and activate virtual environment:
 python -m venv .venv
 .venv\Scripts\activate
 
-pip install --upgrade pip
+Upgrade pip and install dependencies:
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+
+Run migrations:
 python manage.py migrate
 
-Start backend:
+Start the backend:
 python manage.py runserver 8010
 
-Backend URL:
+Test backend in browser:
 http://127.0.0.1:8010/chat/
 
 ---
 
-Frontend
+Backend Setup (macOS / Linux)
+
+cd chat_app_backend
+
+Create and activate virtual environment:
+python3 -m venv .venv
+source .venv/bin/activate
+
+Upgrade pip and install dependencies:
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+Run migrations:
+python manage.py migrate
+
+Start the backend:
+python manage.py runserver 8010
+
+Test backend in browser:
+http://127.0.0.1:8010/chat/
+
+---
+
+Frontend Setup
+
+Open a second terminal:
 
 cd chat_app_frontend
 
+Install dependencies:
 npm install
+
+Start the frontend:
 npm start
 
-Frontend URL:
+Open in browser:
 http://localhost:4200
+
+---
+
+Configuration Notes
+
+Ports
+
+- Django runs on: http://127.0.0.1:8010
+- Angular runs on: http://localhost:4200
+
+CORS (Backend)
+For direct frontend-to-backend calls, CORS must allow the Angular origin.
+
+Typical setting in core/settings.py:
+
+- CORS_ALLOWED_ORIGINS = ["http://localhost:4200"]
+
+Zone.js (Frontend)
+Angular is configured to require Zone.js.
+Ensure it is installed and imported, e.g. in src/main.ts:
+
+- import 'zone.js';
+
+---
+
+Common Troubleshooting
+
+1. Connection refused (ERR_CONNECTION_REFUSED)
+
+- Django server is not running
+- Wrong port (check 8010)
+- Verify in browser: http://127.0.0.1:8010/chat/
+
+2. CORS errors in browser console
+
+- CORS_ALLOWED_ORIGINS missing or wrong
+- Make sure origin is exactly: http://localhost:4200
+- Restart Django after changing settings
+
+3. Angular blank page
+
+- Check browser console for runtime errors
+- Ensure zone.js is imported
+- Ensure npm start is running in chat_app_frontend (not backend)
+
+---
+
+API Quick Tests
+
+Create a message (PowerShell):
+$body = @{ name = "Testuser"; message = "Hello" } | ConvertTo-Json
+Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/" -Method Post -ContentType "application/json" -Body $body
+
+List messages:
+Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/" -Method Get
+
+Delete a message:
+Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/1/" -Method Delete
 
 ---
 
