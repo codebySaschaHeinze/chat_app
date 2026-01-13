@@ -29,10 +29,10 @@ def chat_view(request):
     name = (payload.get("name") or "").strip()
     message = (payload.get("message") or "").strip()
 
-    if not name:
-        return JsonResponse({"error": "name ist required"}, status=400)
-    if not message:
-        return JsonResponse({"error": "message ist required"}, status=400)
+    # if not name:
+    #     return JsonResponse({"error": "name ist required"}, status=400)
+    # if not message:
+    #     return JsonResponse({"error": "message ist required"}, status=400)
 
     chat = Chat.objects.create(
         name=name, 
