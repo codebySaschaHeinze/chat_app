@@ -141,53 +141,85 @@ Zone.js is enabled to ensure automatic UI updates after HTTP requests.
 
 Clone the repository
 
-git clone <YOUR_REPO_URL>
+```text
+git clone https://github.com/codebySaschaHeinze/chat_app.git
 cd chat_app
+```
 
 ---
 
 ### Backend Setup (Windows)
 
+```text
 cd chat_app_backend
+```
 
 Create and activate virtual environment:
+
+```text
 python -m venv .venv
 .venv\Scripts\activate
+```
 
 Upgrade pip and install dependencies:
+
+```text
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 Run migrations:
+
+```text
 python manage.py migrate
+```
 
 Start the backend:
+
+```text
 python manage.py runserver 8010
+```
 
 Test backend in browser:
+
 http://127.0.0.1:8010/chat/
 
 ---
 
 ### Backend Setup (macOS / Linux)
 
+```text
 cd chat_app_backend
+```
 
 Create and activate virtual environment:
+
+```text
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
 Upgrade pip and install dependencies:
+
+```text
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 Run migrations:
+
+```text
 python manage.py migrate
+```
 
 Start the backend:
+
+```text
 python manage.py runserver 8010
+```
 
 Test backend in browser:
+
 http://127.0.0.1:8010/chat/
 
 ---
@@ -196,15 +228,24 @@ http://127.0.0.1:8010/chat/
 
 Open a second terminal:
 
+```text
 cd chat_app_frontend
+```
 
 Install dependencies:
+
+```text
 npm install
+```
 
 Start the frontend:
+
+```text
 npm start
+```
 
 Open in browser:
+
 http://localhost:4200
 
 ---
