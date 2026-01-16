@@ -177,12 +177,12 @@ python manage.py migrate
 Start the backend:
 
 ```text
-python manage.py runserver 8010
+python manage.py runserver 8000
 ```
 
 Test backend in browser:
 
-http://127.0.0.1:8010/chat/
+http://127.0.0.1:8000/chat/
 
 ---
 
@@ -215,12 +215,12 @@ python manage.py migrate
 Start the backend:
 
 ```text
-python manage.py runserver 8010
+python manage.py runserver 8000
 ```
 
 Test backend in browser:
 
-http://127.0.0.1:8010/chat/
+http://127.0.0.1:8000/chat/
 
 ---
 
@@ -254,7 +254,7 @@ http://localhost:4200
 
 Ports
 
-- Django runs on: http://127.0.0.1:8010
+- Django runs on: http://127.0.0.1:8000
 - Angular runs on: http://localhost:4200
 
 CORS (Backend)
@@ -277,8 +277,8 @@ Ensure it is installed and imported, e.g. in src/main.ts:
 1. Connection refused (ERR_CONNECTION_REFUSED)
 
 - Django server is not running
-- Wrong port (check 8010)
-- Verify in browser: http://127.0.0.1:8010/chat/
+- Wrong port (check 8000)
+- Verify in browser: http://127.0.0.1:8000/chat/
 
 2. CORS errors in browser console
 
@@ -298,13 +298,13 @@ Ensure it is installed and imported, e.g. in src/main.ts:
 
 Create a message (PowerShell):
 $body = @{ name = "Testuser"; message = "Hello" } | ConvertTo-Json
-Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/" -Method Post -ContentType "application/json" -Body $body
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/chat/" -Method Post -ContentType "application/json" -Body $body
 
 List messages:
-Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/" -Method Get
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/chat/" -Method Get
 
 Delete a message:
-Invoke-RestMethod -Uri "http://127.0.0.1:8010/chat/1/" -Method Delete
+Invoke-RestMethod -Uri "http://127.0.0.1:8000/chat/1/" -Method Delete
 
 ---
 

@@ -28,7 +28,7 @@ export class App implements OnInit {
   }
 
   loadChats(): void {
-    this.http.get<Chat[]>('http://127.0.0.1:8010/chat/').subscribe((data) => {
+    this.http.get<Chat[]>('http://127.0.0.1:8000/chat/').subscribe((data) => {
       this.chats = data;
     });
   }
@@ -47,7 +47,7 @@ export class App implements OnInit {
 
     if (!name || !message) return;
 
-    this.http.post<Chat>('http://127.0.0.1:8010/chat/', { name, message }).subscribe((created) => {
+    this.http.post<Chat>('http://127.0.0.1:8000/chat/', { name, message }).subscribe((created) => {
       this.chats = [created, ...this.chats];
       this.name = '';
       this.message = '';
@@ -55,7 +55,7 @@ export class App implements OnInit {
   }
 
   deleteChat(id: number): void {
-    this.http.delete(`http://127.0.0.1:8010/chat/${id}/`).subscribe(() => {
+    this.http.delete(`http://127.0.0.1:8000/chat/${id}/`).subscribe(() => {
       this.chats = this.chats.filter((chat) => chat.id !== id);
     });
   }
